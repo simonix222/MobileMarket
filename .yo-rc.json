@@ -1,0 +1,40 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.myaccademy.myappjh",
+      "nativeLanguage": "it"
+    },
+    "jhipsterVersion": "6.0.0",
+    "applicationType": "monolith",
+    "baseName": "MobileMarket",
+    "packageName": "com.myaccademy.myappjh",
+    "packageFolder": "com/myaccademy/myappjh",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "hazelcast",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "NGU4NGY0MTUxNzJmYjVhYTdmNmM3NDQxY2U2M2QwYThkZTIxMWUwMWU2ZTU1MjFiYTJmNDllMGVkYzMyYmVkZWU1NDE4ZWNjODNhMjRiNWYwOTc2YTUxODI2NmFlMzRiN2MwOWRlOGRkNmYyZDljOTg4Njk3ZWUzZTk4NWNhMWE=",
+    "clientFramework": "angularX",
+    "clientTheme": "solar",
+    "clientThemeVariant": "primary",
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "nativeLanguage": "it",
+    "languages": ["it"]
+  }
+}
