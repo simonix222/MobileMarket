@@ -1,0 +1,10 @@
+{
+  "mobileMarketApp": {
+    "StatoOrdine": {
+      "null": "",
+      "COMPLETATO": "COMPLETATO",
+      "IN_ATTESA": "IN_ATTESA",
+      "CANCELLATO": "CANCELLATO"
+    }
+  }
+}

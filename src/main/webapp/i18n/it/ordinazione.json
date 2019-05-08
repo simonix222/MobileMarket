@@ -1,0 +1,25 @@
+{
+  "mobileMarketApp": {
+    "ordinazione": {
+      "home": {
+        "title": "Ordinazioni",
+        "createLabel": "Genera una nuova Ordinazione",
+        "createOrEditLabel": "Genera o modifica una Ordinazione"
+      },
+      "created": "&Egrave; stata generata una nuova Ordinazione con identificatore {{ param }}",
+      "updated": "&Egrave; stata aggiornata una Ordinazione identificato da {{ param }}",
+      "deleted": "&Egrave; stata eliminata una Ordinazione con identificatore {{ param }}",
+      "delete": {
+        "question": "Sei sicuro di volere eliminare Ordinazione {{ id }}?"
+      },
+      "detail": {
+        "title": "Ordinazione"
+      },
+      "quantita": "Quantita",
+      "prezzoTotale": "Prezzo Totale",
+      "stato": "Stato",
+      "prodotto": "Prodotto",
+      "ordine": "Ordine"
+    }
+  }
+}

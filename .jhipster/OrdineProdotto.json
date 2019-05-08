@@ -1,0 +1,52 @@
+{
+    "name": "OrdineProdotto",
+    "fields": [
+        {
+            "fieldName": "dataInserimento",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "stato",
+            "fieldType": "StatoOrdine",
+            "fieldValues": "COMPLETATO,IN_ATTESA,CANCELLATO",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "codice",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "ordinazione",
+            "otherEntityRelationshipName": "ordine",
+            "relationshipName": "ordinazione"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "cliente",
+            "otherEntityRelationshipName": "ordine",
+            "relationshipValidateRules": "required",
+            "relationshipName": "cliente",
+            "otherEntityField": "email"
+        }
+    ],
+    "changelogDate": "20190508121747",
+    "entityTableName": "ordine_prodotto",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,25 @@
+{
+  "mobileMarketApp": {
+    "ordineProdotto": {
+      "home": {
+        "title": "Ordine Prodotti",
+        "createLabel": "Genera un nuovo Ordine Prodotto",
+        "createOrEditLabel": "Genera o modifica un Ordine Prodotto"
+      },
+      "created": "&Egrave; stato generato un nuovo Ordine Prodotto con identificatore {{ param }}",
+      "updated": "&Egrave; stato aggiornato Ordine Prodotto identificato da {{ param }}",
+      "deleted": "&Egrave; stato eliminato Ordine Prodotto con identificatore {{ param }}",
+      "delete": {
+        "question": "Sei sicuro di volere eliminare Ordine Prodotto {{ id }}?"
+      },
+      "detail": {
+        "title": "Ordine Prodotto"
+      },
+      "dataInserimento": "Data Inserimento",
+      "stato": "Stato",
+      "codice": "Codice",
+      "ordinazione": "Ordinazione",
+      "cliente": "Cliente"
+    }
+  }
+}

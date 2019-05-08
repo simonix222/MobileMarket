@@ -1,0 +1,70 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="mobileMarketApp.ordinazione.home.title">Ordinaziones</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-ordinazione" [routerLink]="['/ordinazione/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="mobileMarketApp.ordinazione.home.createLabel">
+            Create new Ordinazione
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="ordinaziones">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="mobileMarketApp.ordinazione.quantita">Quantita</span></th>
+            <th><span jhiTranslate="mobileMarketApp.ordinazione.prezzoTotale">Prezzo Totale</span></th>
+            <th><span jhiTranslate="mobileMarketApp.ordinazione.stato">Stato</span></th>
+            <th><span jhiTranslate="mobileMarketApp.ordinazione.prodotto">Prodotto</span></th>
+            <th><span jhiTranslate="mobileMarketApp.ordinazione.ordine">Ordine</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let ordinazione of ordinaziones ;trackBy: trackId">
+                <td><a [routerLink]="['/ordinazione', ordinazione.id, 'view' ]">{{ordinazione.id}}</a></td>
+                <td>{{ordinazione.quantita}}</td>
+                <td>{{ordinazione.prezzoTotale}}</td>
+                <td jhiTranslate="{{'mobileMarketApp.Magazzino.' + ordinazione.stato}}">{{ordinazione.stato}}</td>
+                <td>
+                    <div *ngIf="ordinazione.prodotto">
+                        <a [routerLink]="['../prodotto', ordinazione.prodotto?.id, 'view' ]" >{{ordinazione.prodotto?.nome}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="ordinazione.ordine">
+                        <a [routerLink]="['../ordine-prodotto', ordinazione.ordine?.id, 'view' ]" >{{ordinazione.ordine?.codice}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/ordinazione', ordinazione.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/ordinazione', ordinazione.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'ordinazione', { outlets: { popup: ordinazione.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

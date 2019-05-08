@@ -1,0 +1,47 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="ordinazione">
+            <h2><span jhiTranslate="mobileMarketApp.ordinazione.detail.title">Ordinazione</span> {{ordinazione.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="mobileMarketApp.ordinazione.quantita">Quantita</span></dt>
+                <dd>
+                    <span>{{ordinazione.quantita}}</span>
+                </dd>
+                <dt><span jhiTranslate="mobileMarketApp.ordinazione.prezzoTotale">Prezzo Totale</span></dt>
+                <dd>
+                    <span>{{ordinazione.prezzoTotale}}</span>
+                </dd>
+                <dt><span jhiTranslate="mobileMarketApp.ordinazione.stato">Stato</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'mobileMarketApp.Magazzino.' + ordinazione.stato}}">{{ordinazione.stato}}</span>
+                </dd>
+                <dt><span jhiTranslate="mobileMarketApp.ordinazione.prodotto">Prodotto</span></dt>
+                <dd>
+                    <div *ngIf="ordinazione.prodotto">
+                        <a [routerLink]="['/prodotto', ordinazione.prodotto?.id, 'view']">{{ordinazione.prodotto?.nome}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="mobileMarketApp.ordinazione.ordine">Ordine</span></dt>
+                <dd>
+                    <div *ngIf="ordinazione.ordine">
+                        <a [routerLink]="['/ordine-prodotto', ordinazione.ordine?.id, 'view']">{{ordinazione.ordine?.codice}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/ordinazione', ordinazione.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

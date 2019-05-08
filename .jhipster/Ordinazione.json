@@ -1,0 +1,58 @@
+{
+    "name": "Ordinazione",
+    "fields": [
+        {
+            "fieldName": "quantita",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required",
+                "min"
+            ],
+            "fieldValidateRulesMin": 0
+        },
+        {
+            "fieldName": "prezzoTotale",
+            "fieldType": "BigDecimal",
+            "fieldValidateRules": [
+                "required",
+                "min"
+            ],
+            "fieldValidateRulesMin": 0
+        },
+        {
+            "fieldName": "stato",
+            "fieldType": "Magazzino",
+            "fieldValues": "DISPONIBILE,NON_DISPONIBILE,IN_ORDINE",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "prodotto",
+            "otherEntityRelationshipName": "ordinazione",
+            "relationshipValidateRules": "required",
+            "relationshipName": "prodotto",
+            "otherEntityField": "nome"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "ordineProdotto",
+            "otherEntityRelationshipName": "ordinazione",
+            "relationshipValidateRules": "required",
+            "relationshipName": "ordine",
+            "otherEntityField": "codice"
+        }
+    ],
+    "changelogDate": "20190508121748",
+    "entityTableName": "ordinazione",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

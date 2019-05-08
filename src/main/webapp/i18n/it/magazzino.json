@@ -1,0 +1,10 @@
+{
+  "mobileMarketApp": {
+    "Magazzino": {
+      "null": "",
+      "DISPONIBILE": "DISPONIBILE",
+      "NON_DISPONIBILE": "NON_DISPONIBILE",
+      "IN_ORDINE": "IN_ORDINE"
+    }
+  }
+}

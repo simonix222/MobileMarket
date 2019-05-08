@@ -1,0 +1,83 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-prodotto-heading" jhiTranslate="mobileMarketApp.prodotto.home.createOrEditLabel">Create or edit a Prodotto</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!prodotto.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mobileMarketApp.prodotto.nome" for="field_nome">Nome</label>
+                    <input type="text" class="form-control" name="nome" id="field_nome"
+                           formControlName="nome"/>
+                    <div *ngIf="editForm.get('nome').invalid && (editForm.get('nome').dirty || editForm.get('nome').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('nome').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mobileMarketApp.prodotto.descrizione" for="field_descrizione">Descrizione</label>
+                    <input type="text" class="form-control" name="descrizione" id="field_descrizione"
+                           formControlName="descrizione"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mobileMarketApp.prodotto.prezzo" for="field_prezzo">Prezzo</label>
+                    <input type="number" class="form-control" name="prezzo" id="field_prezzo"
+                           formControlName="prezzo"/>
+                    <div *ngIf="editForm.get('prezzo').invalid && (editForm.get('prezzo').dirty || editForm.get('prezzo').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('prezzo').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('prezzo').errors.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('prezzo')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mobileMarketApp.prodotto.immagine" for="field_immagine">Immagine</label>
+                    <div>
+                        <img [src]="'data:' + editForm.get('immagineContentType').value + ';base64,' + editForm.get('immagine').value" style="max-height: 100px;" *ngIf="editForm.get('immagine').value" alt="prodotto image"/>
+                        <div *ngIf="editForm.get('immagine').value" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{editForm.get('immagineContentType').value}}, {{byteSize(editForm.get('immagine').value)}}</span>
+                            <button type="button" (click)="clearInputImage('immagine', 'immagineContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_immagine" (change)="setFileData($event, 'immagine', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="immagine" id="field_immagine"
+                           formControlName="immagine"/>
+                    <input type="hidden" class="form-control" name="immagineContentType" id="field_immagineContentType"
+                           formControlName="immagineContentType" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="mobileMarketApp.prodotto.categoriaProdotto" for="field_categoriaProdotto">Categoria Prodotto</label>
+                    <select class="form-control" id="field_categoriaProdotto" name="categoriaProdotto" formControlName="categoriaProdotto">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="categoriaProdottoOption.id === editForm.get('categoriaProdotto').value?.id ? editForm.get('categoriaProdotto').value : categoriaProdottoOption" *ngFor="let categoriaProdottoOption of categoriaprodottos; trackBy: trackCategoriaProdottoById">{{categoriaProdottoOption.nome}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

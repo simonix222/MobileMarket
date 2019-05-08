@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity Ordinazione.
+    -->
+    <changeSet id="20190508121748-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="prodotto_id"
+                                 baseTableName="ordinazione"
+                                 constraintName="fk_ordinazione_prodotto_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="prodotto"/>
+
+        <addForeignKeyConstraint baseColumnNames="ordine_id"
+                                 baseTableName="ordinazione"
+                                 constraintName="fk_ordinazione_ordine_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="ordine_prodotto"/>
+
+    </changeSet>
+</databaseChangeLog>

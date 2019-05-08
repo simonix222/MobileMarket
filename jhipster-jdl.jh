@@ -1,0 +1,45 @@
+
+entity Prodotto {
+    nome String required
+    descrizione String
+    prezzo BigDecimal required min(0)
+    immagine ImageBlob
+}
+entity CategoriaProdotto {
+    nome String required
+    descrizione String
+}
+entity Cliente {
+    nome String required
+    cognome String required
+    email String required pattern(/^[^@\s]+@[^@\s]+\.[^@\s]+$/)
+    telefono String required
+    indirizzo String required
+    citta String required
+    nazione String required
+}
+entity OrdineProdotto {
+    dataInserimento Instant required
+    stato StatoOrdine required
+    codice String required
+}
+enum StatoOrdine {
+    COMPLETATO, IN_ATTESA, CANCELLATO
+}
+entity Ordinazione {
+    quantita Integer required min(0)
+    prezzoTotale BigDecimal required min(0)
+    stato Magazzino required
+}
+enum Magazzino {
+    DISPONIBILE, NON_DISPONIBILE, IN_ORDINE
+}
+relationship OneToOne {
+    Cliente{user(login) required} to User
+}
+relationship ManyToOne {
+    Ordinazione{prodotto(nome) required} to Prodotto
+}
+relationship OneToMany {
+    Cliente{ordine} to OrdineProdotto{cliente(email) required} , OrdineProdotto{ordinazione} to Ordinazione{ordine(codice) required} , CategoriaProdotto{prodotto} to Prodotto{categoriaProdotto(nome)}
+}

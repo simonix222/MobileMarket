@@ -1,0 +1,23 @@
+{
+  "mobileMarketApp": {
+    "categoriaProdotto": {
+      "home": {
+        "title": "Categoria Prodotti",
+        "createLabel": "Genera un nuovo Categoria Prodotto",
+        "createOrEditLabel": "Genera o modifica un Categoria Prodotto"
+      },
+      "created": "&Egrave; stato generato un nuovo Categoria Prodotto con identificatore {{ param }}",
+      "updated": "&Egrave; stato aggiornato Categoria Prodotto identificato da {{ param }}",
+      "deleted": "&Egrave; stato eliminato Categoria Prodotto con identificatore {{ param }}",
+      "delete": {
+        "question": "Sei sicuro di volere eliminare Categoria Prodotto {{ id }}?"
+      },
+      "detail": {
+        "title": "Categoria Prodotto"
+      },
+      "nome": "Nome",
+      "descrizione": "Descrizione",
+      "prodotto": "Prodotto"
+    }
+  }
+}
