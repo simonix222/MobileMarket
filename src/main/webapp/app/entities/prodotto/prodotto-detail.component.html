@@ -1,39 +1,41 @@
 <div class="row justify-content-center">
     <div class="col-8">
         <div *ngIf="prodotto">
-            <h2><span jhiTranslate="mobileMarketApp.prodotto.detail.title">Prodotto</span> {{prodotto.id}}</h2>
+            <h2>{{prodotto.nome}}</h2>
             <hr>
             <jhi-alert-error></jhi-alert-error>
+            <div class="row justify-content">
+            <div class="col-4">
             <dl class="row-md jh-entity-details">
-                <dt><span jhiTranslate="mobileMarketApp.prodotto.nome">Nome</span></dt>
-                <dd>
-                    <span>{{prodotto.nome}}</span>
-                </dd>
-                <dt><span jhiTranslate="mobileMarketApp.prodotto.descrizione">Descrizione</span></dt>
+                    <dt><h5><span jhiTranslate="mobileMarketApp.prodotto.categoriaProdotto">Categoria Prodotto</span></h5></dt>
+                    <dd>
+                        <div *ngIf="prodotto.categoriaProdotto">
+                            <a [routerLink]="['/categoria-prodotto', prodotto.categoriaProdotto?.id, 'view']">{{prodotto.categoriaProdotto?.nome}}</a>
+                        </div>
+                    </dd>
+                <dt><h5><span jhiTranslate="mobileMarketApp.prodotto.descrizione">Descrizione</span></h5></dt>
                 <dd>
                     <span>{{prodotto.descrizione}}</span>
                 </dd>
-                <dt><span jhiTranslate="mobileMarketApp.prodotto.prezzo">Prezzo</span></dt>
-                <dd>
-                    <span>{{prodotto.prezzo}}</span>
-                </dd>
-                <dt><span jhiTranslate="mobileMarketApp.prodotto.immagine">Immagine</span></dt>
+                
+            </dl>
+            </div>
+            <div class="col-2"></div>
+            <div class="col-6">
+            <dl class="row-md jh-entity-details">
+                
+                <h3><span jhiTranslate="mobileMarketApp.prodotto.prezzo"> Prezzo </span><span> {{prodotto.prezzo}}€</span></h3>
+                    
                 <dd>
                     <div *ngIf="prodotto.immagine">
                         <a (click)="openFile(prodotto.immagineContentType, prodotto.immagine)">
                             <img [src]="'data:' + prodotto.immagineContentType + ';base64,' + prodotto.immagine" style="max-width: 100%;" alt="prodotto image"/>
                         </a>
-                        {{prodotto.immagineContentType}}, {{byteSize(prodotto.immagine)}}
-                    </div>
-                </dd>
-                <dt><span jhiTranslate="mobileMarketApp.prodotto.categoriaProdotto">Categoria Prodotto</span></dt>
-                <dd>
-                    <div *ngIf="prodotto.categoriaProdotto">
-                        <a [routerLink]="['/categoria-prodotto', prodotto.categoriaProdotto?.id, 'view']">{{prodotto.categoriaProdotto?.nome}}</a>
                     </div>
                 </dd>
             </dl>
-
+        </div>
+    </div>
             <button type="submit"
                     (click)="previousState()"
                     class="btn btn-info">
