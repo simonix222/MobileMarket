@@ -41,5 +41,7 @@ relationship ManyToOne {
     Ordinazione{prodotto(nome) required} to Prodotto
 }
 relationship OneToMany {
-    Cliente{ordine} to OrdineProdotto{cliente(email) required} , OrdineProdotto{ordinazione} to Ordinazione{ordine(codice) required} , CategoriaProdotto{prodotto} to Prodotto{categoriaProdotto(nome)}
+    Cliente{ordine} to OrdineProdotto{cliente(email) required} , 
+    OrdineProdotto{ordinazione} to Ordinazione{ordine(codice) required} , 
+    CategoriaProdotto{prodotto} to Prodotto{categoriaProdotto(nome)}
 }

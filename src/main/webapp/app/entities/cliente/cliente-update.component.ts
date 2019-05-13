@@ -23,7 +23,7 @@ export class ClienteUpdateComponent implements OnInit {
     id: [],
     nome: [null, [Validators.required]],
     cognome: [null, [Validators.required]],
-    email: [null, [Validators.required, Validators.pattern('^[^@s]+@[^@s]+.[^@s]+$')]],
+    email: [null, [Validators.required]],
     telefono: [null, [Validators.required]],
     indirizzo: [null, [Validators.required]],
     citta: [null, [Validators.required]],
