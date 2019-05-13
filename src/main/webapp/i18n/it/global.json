@@ -48,7 +48,9 @@
       "confirmpassword.label": "Conferma nuova password",
       "confirmpassword.placeholder": "Conferma nuova password",
       "email.label": "Email",
-      "email.placeholder": "Il tuo indirizzo email"
+      "email.placeholder": "Il tuo indirizzo email",
+      "firstName.placeholder": "Il tuo nome",
+      "lastName.placeholder": "Il tuo cognome"
     },
     "messages": {
       "info": {
