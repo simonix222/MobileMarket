@@ -7,6 +7,7 @@ import '../content/scss/vendor.scss';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
   faUser,
+  faKey,
   faSort,
   faSortUp,
   faSortDown,
@@ -44,11 +45,14 @@ import {
   faStream,
   faUserTie,
   faShoppingCart,
-  faClipboardList
+  faClipboardList,
+  faArrowAltCircleRight,
+  faAngleDoubleRight
 } from '@fortawesome/free-solid-svg-icons';
 
 // Adds the SVG icon to the library so you can use it in your page
 library.add(faUser);
+library.add(faKey);
 library.add(faSort);
 library.add(faSortUp);
 library.add(faSortDown);
@@ -87,4 +91,6 @@ library.add(faStream);
 library.add(faUserTie);
 library.add(faShoppingCart);
 library.add(faClipboardList);
+library.add(faAngleDoubleRight);
+library.add(faArrowAltCircleRight);
 // jhipster-needle-add-element-to-vendor - JHipster will add new menu items here
